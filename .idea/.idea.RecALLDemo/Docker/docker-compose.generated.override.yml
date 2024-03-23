@@ -1,0 +1,39 @@
+# This is a generated file. Not intended for manual editing.
+version: "3.4"
+services:
+  recall-servicestatus:
+    build:
+      context: "E:\\RecALLDemo"
+      dockerfile: "Infrastructure/ServiceStatus/Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net7.0/RecALLDemo.Infrastructure.ServiceStatus.dll"
+    environment:
+      ASPNETCORE_URLS: "https://+:443;http://+:80"
+    image: "recall-servicestatus:dev"
+    ports: []
+    volumes:
+    - "C:\\Users\\Lenovo\\AppData\\Roaming\\ASP.NET\\Https:/root/.aspnet/https"
+    - "C:\\Users\\Lenovo\\AppData\\Roaming\\Microsoft\\UserSecrets:/root/.microsoft/usersecrets"
+    - "E:\\RecALLDemo\\Infrastructure\\ServiceStatus:/app:rw"
+    working_dir: "/app"
+  recall-textitemapi:
+    build:
+      context: "E:\\RecALLDemo"
+      dockerfile: "Contrib/TextItem.Api/Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net7.0/RecALLDemo.Contrib.TextItem.Api.dll"
+    environment:
+      ASPNETCORE_URLS: "https://+:443;http://+:80"
+    image: "recall-textitemapi:dev"
+    ports: []
+    volumes:
+    - "C:\\Users\\Lenovo\\AppData\\Roaming\\ASP.NET\\Https:/root/.aspnet/https"
+    - "C:\\Users\\Lenovo\\AppData\\Roaming\\Microsoft\\UserSecrets:/root/.microsoft/usersecrets"
+    - "E:\\RecALLDemo\\Contrib\\TextItem.Api:/app:rw"
+    working_dir: "/app"

@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <AssemblyName>RecALLDemo.Infrastructure.Infrastructure.Api</AssemblyName>
+        <RootNamespace>RecALLDemo.Infrastructure.Infrastructure.Api</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Dapr.Client" Version="1.13.0" />
+    </ItemGroup>
+
+</Project>
