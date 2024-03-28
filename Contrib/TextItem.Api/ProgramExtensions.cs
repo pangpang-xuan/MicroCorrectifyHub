@@ -65,7 +65,7 @@ public static class ProgramExtensions {
     //进行模型验证的，如果用户输入的信息不符合要求的话
     public static void AddInvalidModelStateResponseFactory(
         this WebApplicationBuilder builder) {
-        builder.Services.AddOptions().Configure<ApiBehaviorOptions>(options => {
+        builder.Services.AddOptions().PostConfigure<ApiBehaviorOptions>(options => {
             options.InvalidModelStateResponseFactory = context =>
                 new OkObjectResult(ServiceResult
                     .CreateInvalidParameterResult(

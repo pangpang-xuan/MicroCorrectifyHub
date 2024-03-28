@@ -21,6 +21,15 @@ services:
     volumes:
       - recall-sqldata:/var/opt/mssql
   
+  
+  recall-envoygateway:
+    volumes:
+      - ./Infrastructure/envoy.yaml:/etc/envoy/envoy.yaml
+    ports:
+      - "35191:80"
+      - "35181:8001"
+
+
   recall-textitemapi:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
@@ -40,16 +49,28 @@ services:
     volumes:
       - "./dapr/components/:/components"
       - "./dapr/configuration/:/configuration"
-  
-        
 
+
+  recall-envoygateway-dapr:
+    command: [ "./daprd",
+               "-app-id", "recall-envoygateway",
+               "-app-port", "80",
+               "-components-path", "/components"
+    ]
+    volumes:
+      - "./dapr/components/:/components"
+
+  
   recall-servicestatus:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_HTTP_PORTS=80
     ports:
       - "35107:80"
-    
+
+ 
+
+
 
 volumes:
   recall-sqldata:

@@ -15,6 +15,19 @@ services:
     image: mcr.microsoft.com/mssql/server:2019-latest
     extra_hosts:
       - "host.docker.internal:host-gateway"
+  
+  
+  recall-envoygateway:
+    image: envoyproxy/envoy:v1.11.1
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+
+  recall-envoygateway-dapr:
+    image: "daprio/daprd:1.9.4"
+    network_mode: "service:recall-envoygateway"
+    depends_on:
+      - recall-envoygateway
 
 
   recall-textitemapi:
