@@ -4,7 +4,7 @@ using RecALLDemo.Infrastructure.Ddd.Domain.SeedWork;
 namespace RecALLDemo.Core.List.Domain.AggregateModels;
 
 public class ListType : Enumeration {
-    public const int TextId = 1;
+    public const int TextId = 1; //规定纯文本错题本
 
     public static ListType Text = new(TextId, nameof(Text).ToLowerInvariant(),
         nameof(Text));

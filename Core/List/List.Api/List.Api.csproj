@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <AssemblyName>RecALLDemo.Core.List.Api</AssemblyName>
+        <RootNamespace>RecALLDemo.Core.List.Api</RootNamespace>
+    </PropertyGroup>
+
+</Project>

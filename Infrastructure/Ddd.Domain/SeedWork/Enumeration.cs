@@ -6,7 +6,7 @@ namespace RecALLDemo.Infrastructure.Ddd.Domain.SeedWork;
 
 public abstract class Enumeration : IComparable {
     
-    //枚举
+    //枚举类型，可以存放在数据库中，也可以进行写死
     
     public int Id { get; private set; }
 

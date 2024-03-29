@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <AssemblyName>RecALLDemo.Core.List.Infrastructure</AssemblyName>
+        <RootNamespace>RecALLDemo.Core.List.Infrastructure</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\..\Infrastructure\Ddd.Infrastructure\Ddd.Infrastructure.csproj" />
+      <ProjectReference Include="..\List.Domain\List.Domain.csproj" />
+    </ItemGroup>
+
+</Project>

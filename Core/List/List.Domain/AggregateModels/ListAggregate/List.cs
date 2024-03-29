@@ -33,7 +33,7 @@ public class List : Entity, IAggregateRoot {
         var listCreatedDomainEvent = new ListCreatedDomainEvent(this);
         AddDomainEvent(listCreatedDomainEvent);
     }
-
+    
     //删
     public void SetDeleted() {
         if (_isDeleted) {
