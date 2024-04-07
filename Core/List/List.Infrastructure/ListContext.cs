@@ -95,5 +95,5 @@ public class ListContextDesignFactory : IDesignTimeDbContextFactory<ListContext>
         new(
             new DbContextOptionsBuilder<ListContext>()
                 .UseSqlServer("Server=.;Initial Catalog=RecAll.ListDb;Integrated Security=true").Options,
-            new NoMediator());
+            new NoMediator()); //必须需要Nomediator 因此使用了NoMediator进行空占位符
 }

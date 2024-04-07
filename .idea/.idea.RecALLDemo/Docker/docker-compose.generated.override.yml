@@ -1,6 +1,24 @@
 # This is a generated file. Not intended for manual editing.
 version: "3.4"
 services:
+  recall-listapi:
+    build:
+      context: "E:\\RecALLDemo"
+      dockerfile: "Core/List/List.Api/Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net7.0/RecALLDemo.Core.List.Api.dll"
+    environment:
+      ASPNETCORE_URLS: "https://+:443;http://+:80"
+    image: "recall-listapi:dev"
+    ports: []
+    volumes:
+    - "C:\\Users\\Lenovo\\AppData\\Roaming\\ASP.NET\\Https:/root/.aspnet/https"
+    - "C:\\Users\\Lenovo\\AppData\\Roaming\\Microsoft\\UserSecrets:/root/.microsoft/usersecrets"
+    - "E:\\RecALLDemo\\Core\\List\\List.Api:/app:rw"
+    working_dir: "/app"
   recall-servicestatus:
     build:
       context: "E:\\RecALLDemo"

@@ -4,9 +4,10 @@
     <option name="keyValueStorage">
       <map>
         <entry key="Common:2eb86203-7c34-4ed5-88f7-90608fc9c75e:dbContext" value="RecALLDemo.Contrib.TextItem.Api.Services.TextItemContext" />
+        <entry key="Common:72343773-bdc5-4cfc-ab51-81301161ea63:dbContext" value="RecALLDemo.Core.List.Infrastructure.ListContext" />
         <entry key="Common:buildConfiguration" value="Debug" />
         <entry key="Common:noBuild" value="false" />
-        <entry key="Common:outputFolder" value="Migrations" />
+        <entry key="Common:outputFolder" value="..\List.Api\Infrastructure\Migrations\List" />
       </map>
     </option>
   </component>

@@ -67,11 +67,29 @@ services:
       - ASPNETCORE_HTTP_PORTS=80
     ports:
       - "35107:80"
+  
+    
+  recall-listapi:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=80
+    ports:
+      - "35200:80"
+      
+  recall-listapi-dapr:
+    command: [ "./daprd",
+               "-app-id", "recall-listapi",
+               "-app-port", "80",
+               "-components-path", "/components",
+               "-config", "/configuration/recall-configuration.yaml" ]
+    volumes:
+      - "./dapr/components/:/components"
+      - "./dapr/configuration/:/configuration"
 
- 
 
 
 
 volumes:
   recall-sqldata:
     external: false
+

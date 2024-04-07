@@ -6,6 +6,8 @@ namespace RecALLDemo.Infrastructure.Ddd.Infrastructure;
 
 
 public class NoMediator : IMediator {
+    
+    //占位符
     public Task<TResponse> Send<TResponse>(IRequest<TResponse> request, CancellationToken cancellationToken = new()) =>
         Task.FromResult(default(TResponse));
 

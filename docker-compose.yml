@@ -50,6 +50,19 @@ services:
       context: .
       dockerfile: Infrastructure/ServiceStatus/Dockerfile
       
-      
   
+  recall-listapi:
+    image: recall-listapi
+    build:
+      context: .
+      dockerfile: Core/List/List.Api/Dockerfile
+      
+      
+      
+  recall-listapi-dapr:
+    image: "daprio/daprd:1.9.4"
+    network_mode: "service:recall-listapi"
+    depends_on:
+      - recall-listapi
+
 

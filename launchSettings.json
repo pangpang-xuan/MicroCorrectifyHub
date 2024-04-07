@@ -5,7 +5,8 @@
       "commandVersion": "1.0",
       "serviceActions": {
         "textitem.api": "StartDebugging",
-        "servicestatus": "StartDebugging"
+        "servicestatus": "StartDebugging",
+        "list.api": "StartDebugging"
       }
     }
   }

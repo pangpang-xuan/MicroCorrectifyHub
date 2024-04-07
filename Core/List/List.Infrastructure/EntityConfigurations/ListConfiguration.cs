@@ -18,7 +18,7 @@ public class ListConfiguration : IEntityTypeConfiguration<
 
         builder.Property<string>("_name")
             .UsePropertyAccessMode(PropertyAccessMode.Field)
-            .HasColumnName("Name").IsRequired();
+            .HasColumnName("Name").IsRequired();   //只有私有没用公开访问渠道
 
         builder.Property<int>("_typeId")
             .UsePropertyAccessMode(PropertyAccessMode.Field)
@@ -31,7 +31,7 @@ public class ListConfiguration : IEntityTypeConfiguration<
 
         builder.Property(p => p.UserIdentityGuid).HasField("_userIdentityGuid")
             .UsePropertyAccessMode(PropertyAccessMode.Field)
-            .HasColumnName("UserIdentityGuid").IsRequired();
+            .HasColumnName("UserIdentityGuid").IsRequired();  //公开和私有的访问渠道都有
 
         builder.Property(p => p.IsDeleted).HasField("_isDeleted")
             .UsePropertyAccessMode(PropertyAccessMode.Field)
