@@ -5,6 +5,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.EntityFrameworkCore.Storage;
 using RecALLDemo.Core.List.Domain.AggregateModels;
+using RecALLDemo.Core.List.Domain.AggregateModels.ItemAggregate;
+using RecALLDemo.Core.List.Domain.AggregateModels.SetAggregate;
 using RecALLDemo.Core.List.Infrastructure.EntityConfigurations;
 using RecALLDemo.Infrastructure.Ddd.Domain.SeedWork;
 using RecALLDemo.Infrastructure.Ddd.Infrastructure;
@@ -17,6 +19,10 @@ public class ListContext : DbContext, IUnitOfWork {
     public const string DefaultSchema = "list";
 
     public DbSet<Domain.AggregateModels.ListAggregate.List> Lists { get; set; }
+    
+    public DbSet<Set> Sets { get; set; }
+    
+    public DbSet<Item> Items { get; set; }
 
     public DbSet<ListType> ListTypes { get; set; }
 
@@ -39,6 +45,9 @@ public class ListContext : DbContext, IUnitOfWork {
     protected override void OnModelCreating(ModelBuilder modelBuilder) {
         modelBuilder.ApplyConfiguration(new ListTypeConfiguration());
         modelBuilder.ApplyConfiguration(new ListConfiguration());
+        modelBuilder.ApplyConfiguration(new SetConfiguration());
+        modelBuilder.ApplyConfiguration(new ItemConfiguration());
+
     }
 
     public async Task<bool> SaveEntitiesAsync(CancellationToken cancellationToken = default) {

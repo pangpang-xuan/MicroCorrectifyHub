@@ -15,6 +15,10 @@ services:
     image: mcr.microsoft.com/mssql/server:2019-latest
     extra_hosts:
       - "host.docker.internal:host-gateway"
+        
+
+  recall-rabbitmq:
+    image: rabbitmq:3-management-alpine
   
   
   recall-envoygateway:
@@ -64,5 +68,20 @@ services:
     network_mode: "service:recall-listapi"
     depends_on:
       - recall-listapi
+
+
+
+  identity.api:
+    image: ${DOCKER_REGISTRY-}identityapi
+    build:
+      context: .
+      dockerfile: Infrastructure/Identity.Api/Dockerfile
+
+      
+  recall-identity.api:
+    image: recall-identityapi
+    build:
+      context: .
+      dockerfile: Infrastructure/Identity.Api/Dockerfile
 
 

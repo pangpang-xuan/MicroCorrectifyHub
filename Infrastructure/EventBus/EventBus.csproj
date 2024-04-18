@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <AssemblyName>RecALLDemo.Infrasturcture.EventBus</AssemblyName>
+        <RootNamespace>RecALLDemo.Infrasturcture.EventBus</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Dapr.Client" Version="1.13.0" />
+    </ItemGroup>
+
+</Project>

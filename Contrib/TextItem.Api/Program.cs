@@ -14,7 +14,7 @@ builder.AddCustomDatabase();
 builder.AddInvalidModelStateResponseFactory();
 
 builder.Services.AddDaprClient();
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddDapr();
 
 var app = builder.Build();
 
@@ -25,7 +25,9 @@ if (app.Environment.IsDevelopment()) {
     app.MapGet("/", () => Results.LocalRedirect("~/swagger"));
 }
 
+app.UseCloudEvents();
 app.MapControllers();
+app.MapSubscribeHandler();
 app.MapCustomHealthChecks(
     responseWriter: UIResponseWriter.WriteHealthCheckUIResponse);
 

@@ -17,8 +17,10 @@
       <PackageReference Include="AspNetCore.HealthChecks.UI.Client" Version="8.0.1" />
       <PackageReference Include="AspNetCore.HealthChecks.Uris" Version="8.0.1" />
       <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="9.0.0" />
+      <PackageReference Include="Dapper" Version="2.1.35" />
       <PackageReference Include="Dapr.AspNetCore" Version="1.13.0" />
       <PackageReference Include="Dapr.Extensions.Configuration" Version="1.13.0" />
+      <PackageReference Include="FluentValidation" Version="11.9.0" />
       <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.17">
         <PrivateAssets>all</PrivateAssets>
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -36,15 +38,13 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Application\Behaviors\" />
-      <Folder Include="Application\IntegrationEvents\" />
-      <Folder Include="Application\Queries\" />
-      <Folder Include="Application\Validators\" />
+      <Folder Include="Infrastructure\Migrations\IntegrationEventLog\" />
       <Folder Include="Infrastructure\Migrations\List\" />
     </ItemGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\..\..\Infrastructure\Infrastructure.Api\Infrastructure.Api.csproj" />
+      <ProjectReference Include="..\..\..\Infrastructure\IntegrationEventLog\IntegrationEventLog.csproj" />
       <ProjectReference Include="..\List.Infrastructure\List.Infrastructure.csproj" />
     </ItemGroup>
 
