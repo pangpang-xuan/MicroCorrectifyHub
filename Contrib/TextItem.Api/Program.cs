@@ -1,5 +1,6 @@
 using HealthChecks.UI.Client;
 using Infrastructure.Api;
+using Infrastructure.Api.HttpClient;
 using RecALLDemo.Contrib.TextItem.Api;
 
 
@@ -9,15 +10,16 @@ builder.AddCustomConfiguration();
 builder.AddCustomSerilog();
 builder.AddCustomSwagger();
 builder.AddCustomHealthChecks();
+builder.AddCustomHttpClient();
 builder.AddCustomApplicationServices();
 builder.AddCustomDatabase();
+builder.AddCustomIdentityService();
 builder.AddInvalidModelStateResponseFactory();
 
 builder.Services.AddDaprClient();
 builder.Services.AddControllers().AddDapr();
 
 var app = builder.Build();
-
 
 if (app.Environment.IsDevelopment()) {
     app.UseDeveloperExceptionPage();

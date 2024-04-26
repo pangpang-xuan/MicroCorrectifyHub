@@ -1,22 +1,7 @@
 # This is a generated file. Not intended for manual editing.
 version: "3.4"
 services:
-  identity.api:
-    build:
-      context: "E:\\RecALLDemo"
-      dockerfile: "Infrastructure/Identity.Api/Dockerfile"
-      target: "base"
-    command: []
-    entrypoint:
-    - "dotnet"
-    - "/app/bin/Debug/net7.0/RecALLDemo.Infrastructure.Identity.Api.dll"
-    environment: {}
-    image: "identityapi:dev"
-    ports: []
-    volumes:
-    - "E:\\RecALLDemo\\Infrastructure\\Identity.Api:/app:rw"
-    working_dir: "/app"
-  recall-identity.api:
+  recall-identityapi:
     build:
       context: "E:\\RecALLDemo"
       dockerfile: "Infrastructure/Identity.Api/Dockerfile"
@@ -27,6 +12,7 @@ services:
     - "/app/bin/Debug/net7.0/RecALLDemo.Infrastructure.Identity.Api.dll"
     environment:
       ASPNETCORE_URLS: "https://+:443;http://+:80"
+      ASPNETCORE_STATICWEBASSETS: "/app/bin/Debug/net7.0/RecALLDemo.Infrastructure.Identity.Api.staticwebassets.runtime.CT.json"
     image: "recall-identityapi:dev"
     ports: []
     volumes:

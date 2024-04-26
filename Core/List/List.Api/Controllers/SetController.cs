@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using RecALLDemo.Core.List.Api.Application.Commands;
 using RecALLDemo.Core.List.Api.Application.Queries;
@@ -11,6 +12,7 @@ namespace RecALLDemo.Core.List.Api.Controllers;
 
 
 [ApiController]
+[Authorize]
 [Route("[controller]")]
 public class SetController {
     private readonly IMediator _mediator;

@@ -17,16 +17,17 @@ public class ApplicationModule : Module {
     protected override void Load(ContainerBuilder builder) {
         builder.RegisterType<ListRepository>().As<IListRepository>()
             .InstancePerLifetimeScope();
+        builder.RegisterType<SetRepository>().As<ISetRepository>()
+            .InstancePerLifetimeScope();
         builder.RegisterType<ItemRepository>().As<IItemRepository>()
             .InstancePerLifetimeScope();
         
-        builder.RegisterType<MockIdentityService>().As<IIdentityService>()
+        builder.RegisterType<IdentityService>().As<IIdentityService>()
             .InstancePerLifetimeScope();
         builder.RegisterType<ContribUrlService>().As<IContribUrlService>()
             .InstancePerLifetimeScope();
+
         builder.RegisterType<ListQueryService>().As<IListQueryService>()
-            .InstancePerLifetimeScope();
-        builder.RegisterType<SetRepository>().As<ISetRepository>()
             .InstancePerLifetimeScope();
         builder.RegisterType<SetQueryService>().As<ISetQueryService>()
             .InstancePerLifetimeScope();
@@ -35,11 +36,8 @@ public class ApplicationModule : Module {
             connection => new IntegrationEventLogService(connection));
         builder.RegisterType<ListIntegrationEventService>()
             .As<IListIntegrationEventService>().InstancePerLifetimeScope();
+
         builder.RegisterType<DaprEventBus>().As<IEventBus>()
             .InstancePerLifetimeScope();
-
-
-
-
     }
 }

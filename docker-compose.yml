@@ -70,18 +70,19 @@ services:
       - recall-listapi
 
 
-
-  identity.api:
-    image: ${DOCKER_REGISTRY-}identityapi
-    build:
-      context: .
-      dockerfile: Infrastructure/Identity.Api/Dockerfile
-
       
-  recall-identity.api:
+  recall-identityapi:
     image: recall-identityapi
     build:
       context: .
       dockerfile: Infrastructure/Identity.Api/Dockerfile
+      
+      
+  recall-identityapi-dapr:
+    image: "daprio/daprd:1.9.4"
+    network_mode: "service:recall-identityapi"
+    depends_on:
+      - recall-identityapi
+
 
 

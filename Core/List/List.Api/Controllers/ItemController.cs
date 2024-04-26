@@ -1,4 +1,5 @@
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using RecALLDemo.Core.List.Api.Application.Commands;
 using RecALLDemo.Core.List.Api.Infrastructure.Services;
@@ -10,6 +11,7 @@ namespace RecALLDemo.Core.List.Api.Controllers;
 
 
 [ApiController]
+[Authorize]
 [Route("[controller]")]
 public class ItemController {
     private readonly IMediator _mediator;

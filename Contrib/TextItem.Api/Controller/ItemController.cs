@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RecALLDemo.Contrib.TextItem.Api.Commands;
@@ -11,6 +12,7 @@ namespace RecALLDemo.Contrib.TextItem.Api.Controller;
 //web服务的controller 只返回json
 
 [ApiController] 
+[Authorize]
 [Route("[controller]")]
 public class ItemController{
     

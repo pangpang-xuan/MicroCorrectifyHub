@@ -10,25 +10,37 @@
         <DockerfileContext>..\..</DockerfileContext>
         <RootNamespace>RecALLDemo.Infrastructure.Identity.Api</RootNamespace>
     </PropertyGroup>
-    
+
     <ItemGroup>
         <PackageReference Include="AspNetCore.HealthChecks.SqlServer" Version="7.0.0" />
         <PackageReference Include="AspNetCore.HealthChecks.UI.Client" Version="7.1.0" />
         <PackageReference Include="Dapr.AspNetCore" Version="1.12.0" />
         <PackageReference Include="Dapr.Extensions.Configuration" Version="1.12.0" />
         <PackageReference Include="Duende.IdentityServer" Version="6.3.8" />
+        <PackageReference Include="Duende.IdentityServer.AspNetIdentity" Version="6.3.8" />
         <PackageReference Include="Duende.IdentityServer.EntityFramework" Version="6.3.8" />
         <PackageReference Include="Duende.IdentityServer.EntityFramework.Storage" Version="6.3.8" />
+        <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="7.0.14" />
+        <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.14" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.14">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
         <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.14" />
-        <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.18.1" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.14">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.5" />
+    </ItemGroup>
+    
+
+    <ItemGroup>
+      <ProjectReference Include="..\Infrastructure.Api\Infrastructure.Api.csproj" />
     </ItemGroup>
     
     <ItemGroup>
-      <ProjectReference Include="..\Infrastructure.Api\Infrastructure.Api.csproj" />
+      <Folder Include="Migrations\IdentityServer\PersistedGrantDb\" />
     </ItemGroup>
 
 
