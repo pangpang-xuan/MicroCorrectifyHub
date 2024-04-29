@@ -1,3 +1,5 @@
+using System.Security.Claims;
+
 namespace RecALLDemo.Contrib.TextItem.Api.Services;
 
 public class IdentityService : IIdentityService {
@@ -8,5 +10,6 @@ public class IdentityService : IIdentityService {
     }
 
     public string GetUserIdentityGuid() =>
-        _context.HttpContext.User.FindFirst("sub").Value;
+        _context.HttpContext.User
+            .FindFirst(ClaimTypes.NameIdentifier).Value;
 }

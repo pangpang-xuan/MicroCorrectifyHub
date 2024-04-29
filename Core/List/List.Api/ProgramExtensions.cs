@@ -141,8 +141,6 @@ public static class ProgramExtensions {
             options.Authority = identityServerUrl;
             options.RequireHttpsMetadata = false;
             options.Audience = "List";
-            //options.TokenValidationParameters.ValidateIssuer = false;
-            //options.TokenValidationParameters.SignatureValidator = (token, _) => new JsonWebToken(token);
         });
     }
 

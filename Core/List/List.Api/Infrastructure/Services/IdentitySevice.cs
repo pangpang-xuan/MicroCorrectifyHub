@@ -1,5 +1,6 @@
 
 
+using System.Security.Claims;
 using RecALLDemo.Core.List.Api.Infrastructure.Services;
 
 public class IdentityService : IIdentityService {
@@ -10,5 +11,6 @@ public class IdentityService : IIdentityService {
     }
 
     public string GetUserIdentityGuid() =>
-        _context.HttpContext.User.FindFirst("sub").Value;
+        _context.HttpContext.User
+            .FindFirst(ClaimTypes.NameIdentifier).Value;
 }

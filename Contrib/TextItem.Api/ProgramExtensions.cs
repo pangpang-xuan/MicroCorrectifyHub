@@ -76,7 +76,8 @@ public static class ProgramExtensions {
                 builder.Configuration["ConnectionStrings:TextItemContext"]!,
                 name: "TextListDb-check", tags: new[] {
                     "TextListDb"
-                }).AddUrlGroup(
+                })
+            .AddUrlGroup(
                 new Uri(builder.Configuration["IdentityServerHealthCheck"]),
                 "IdentityServerHealthCheck", tags: new[] {
                     "IdentityServer"
@@ -98,7 +99,7 @@ public static class ProgramExtensions {
 
     public static void AddCustomIdentityService(
         this WebApplicationBuilder builder) {
-        // JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Remove("sub");
+        //JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Remove("sub");
         var identityServerUrl = builder.Configuration["IdentityServer"];
         builder.Services.AddAuthentication(options => {
             options.DefaultAuthenticateScheme =
@@ -109,8 +110,6 @@ public static class ProgramExtensions {
             options.Authority = identityServerUrl;
             options.RequireHttpsMetadata = false;
             options.Audience = "TextList";
-            //options.TokenValidationParameters.ValidateIssuer = false;
-            //options.TokenValidationParameters.SignatureValidator = (token, _) => new JsonWebToken(token);
         });
     }
 

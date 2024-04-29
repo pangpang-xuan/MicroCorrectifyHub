@@ -37,5 +37,13 @@ public class ConfigurationDbContextSeed {
 
             await context.SaveChangesAsync();
         }
+        
+        if (!context.ApiResources.Any()) {
+            foreach (var apiResource in Config.ApiResources) {
+                context.ApiResources.Add(apiResource.ToEntity());
+            }
+
+            await context.SaveChangesAsync();
+        }
     }
 }

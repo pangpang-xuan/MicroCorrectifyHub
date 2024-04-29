@@ -30,7 +30,7 @@ public class AuthorizeCheckOperationFilter : IOperationFilter {
         };
 
         operation.Security = new List<OpenApiSecurityRequirement> {
-            new() { [oAuthScheme] = new[] { "TextListApi" } }
+            new() { [oAuthScheme] = new[] { "TextList" } }
         };
     }
 }
