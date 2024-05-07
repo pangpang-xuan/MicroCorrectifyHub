@@ -14,10 +14,15 @@
 + 定义了异常类
 + event： 以及list创建和删除的相关事件
 + aggregatemodels： 进行了list的增删改的定义实现
++ 实现了相关的领域驱动设计的部分
 ### dapr
 + 进行了dapr的相关定义配置
 ### Infrastructure
-+ servicesStatus 定义了与健康检查的相关操作，健康检查各大容器的目前状态
++ Ddd.domain 进行了与领域驱动设计的初步设计 其中定义了报错信息  实体 枚举 数据根的相关操作
++ Ddd.infrastructure 进行了对domain的实现
++ EventBus 定义了消息总线
++ Identity 定义了进行用户身份验证的相关信息
 + infrastructure.api 进行了与健康检查操作的相关边车的操作
-+ ddd.domain 进行了与领域驱动设计的初步设计 其中定义了报错信息  实体 枚举 数据根的相关操作
++ integrationeventlog 定义了一些集成事件的日志
++ servicesStatus 定义了与健康检查的相关操作，健康检查各大容器的目前状态
 
