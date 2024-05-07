@@ -39,6 +39,12 @@ services:
     build:
       context: .
       dockerfile: Contrib/TextItem.Api/Dockerfile
+      
+  recall-maskedtextitemapi:
+    image: recall-maskedtextitemapi
+    build:
+      context: .
+      dockerfile: Contrib/MaskedTextItem.Api/Dockerfile
 
 
   recall-textitemapi-dapr:
@@ -46,6 +52,13 @@ services:
     network_mode: "service:recall-textitemapi"
     depends_on:
       - recall-textitemapi
+
+ 
+  recall-maskedtextitemapi-dapr:
+    image: "daprio/daprd:1.9.4"
+    network_mode: "service:recall-maskedtextitemapi"
+    depends_on:
+      - recall-maskedtextitemapi
   
 
   recall-servicestatus:
@@ -83,6 +96,9 @@ services:
     network_mode: "service:recall-identityapi"
     depends_on:
       - recall-identityapi
+
+
+
 
 
 

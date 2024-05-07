@@ -43,11 +43,31 @@ services:
     ports:
       - "35210:80"
       - "50001"
-     
-    
+
+
+  recall-maskedtextitemapi:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=80
+    ports:
+      - "35220:80"
+
+         
   recall-textitemapi-dapr:
     command: [ "./daprd",
                "-app-id", "recall-textitemapi",
+               "-app-port", "80",
+               "-components-path", "/components",
+               "-config", "/configuration/recall-configuration.yaml"
+    ]
+    volumes:
+      - "./dapr/components/:/components"
+      - "./dapr/configuration/:/configuration"
+
+       
+  recall-maskedtextitemapi-dapr:
+    command: [ "./daprd",
+               "-app-id", "recall-maskedtextitemapi",
                "-app-port", "80",
                "-components-path", "/components",
                "-config", "/configuration/recall-configuration.yaml"
@@ -114,9 +134,13 @@ services:
 
 
 
+
+        
+
 volumes:
   recall-sqldata:
     external: false
+
 
 
 

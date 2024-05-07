@@ -1,0 +1,55 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <UserSecretsId>08e76c07-2698-45cb-95ba-e204b8c2711c</UserSecretsId>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+        <DockerfileContext>..\..</DockerfileContext>
+        <AssemblyName>RecALLDemo.Contrib.MaskedTextItem.Api</AssemblyName>
+        <RootNamespace>RecALLDemo.Contrib.MaskedTextItem.Api</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="AspNetCore.HealthChecks.SqlServer" Version="8.0.0" />
+        <PackageReference Include="AspNetCore.HealthChecks.UI.Client" Version="8.0.0" />
+        <PackageReference Include="AspNetCore.HealthChecks.Uris" Version="8.0.1" />
+        <PackageReference Include="Dapr.AspNetCore" Version="1.13.0" />
+        <PackageReference Include="Dapr.Extensions.Configuration" Version="1.13.0" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.17" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.17">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.17" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.17">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.18.1" />
+        <PackageReference Include="Polly" Version="8.3.1" />
+        <PackageReference Include="Serilog.AspNetCore" Version="8.0.1" />
+        <PackageReference Include="Serilog.Sinks.Seq" Version="7.0.0" />
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+        <PackageReference Include="TheSalLab.GeneralReturnValues" Version="1.0.0" />
+    </ItemGroup>
+
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\Core\List\List.Domain\List.Domain.csproj" />
+        <ProjectReference Include="..\..\Infrastructure\EventBus\EventBus.csproj" />
+        <ProjectReference Include="..\..\Infrastructure\Infrastructure.Api\Infrastructure.Api.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Commands\" />
+      <Folder Include="Controller\" />
+      <Folder Include="Filters\" />
+      <Folder Include="IntegrationEvents\" />
+      <Folder Include="Models\" />
+      <Folder Include="Services\" />
+      <Folder Include="ViewModels\" />
+    </ItemGroup>
+
+</Project>
