@@ -42,14 +42,5 @@
         <ProjectReference Include="..\..\Infrastructure\Infrastructure.Api\Infrastructure.Api.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Commands\" />
-      <Folder Include="Controller\" />
-      <Folder Include="Filters\" />
-      <Folder Include="IntegrationEvents\" />
-      <Folder Include="Models\" />
-      <Folder Include="Services\" />
-      <Folder Include="ViewModels\" />
-    </ItemGroup>
 
 </Project>

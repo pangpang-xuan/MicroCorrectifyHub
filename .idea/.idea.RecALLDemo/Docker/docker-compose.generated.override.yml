@@ -38,6 +38,24 @@ services:
     - "C:\\Users\\Lenovo\\AppData\\Roaming\\Microsoft\\UserSecrets:/root/.microsoft/usersecrets"
     - "E:\\RecALLDemo\\Core\\List\\List.Api:/app:rw"
     working_dir: "/app"
+  recall-maskedtextitemapi:
+    build:
+      context: "E:\\RecALLDemo"
+      dockerfile: "Contrib/MaskedTextItem.Api/Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net7.0/RecALLDemo.Contrib.MaskedTextItem.Api.dll"
+    environment:
+      ASPNETCORE_URLS: "https://+:443;http://+:80"
+    image: "recall-maskedtextitemapi:dev"
+    ports: []
+    volumes:
+    - "C:\\Users\\Lenovo\\AppData\\Roaming\\ASP.NET\\Https:/root/.aspnet/https"
+    - "C:\\Users\\Lenovo\\AppData\\Roaming\\Microsoft\\UserSecrets:/root/.microsoft/usersecrets"
+    - "E:\\RecALLDemo\\Contrib\\MaskedTextItem.Api:/app:rw"
+    working_dir: "/app"
   recall-servicestatus:
     build:
       context: "E:\\RecALLDemo"
