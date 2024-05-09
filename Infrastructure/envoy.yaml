@@ -39,6 +39,13 @@ static_resources:
                             auto_host_rewrite: true
                             prefix_rewrite: "/v1.0/invoke/recall-textitemapi/method/"
                             cluster: dapr
+                        - name: "maskedtext"
+                          match:
+                            prefix: "/maskedtext/"
+                          route:
+                            auto_host_rewrite: true
+                            prefix_rewrite: "/v1.0/invoke/recall-maskedtextitemapi/method/"
+                            cluster: dapr
                 http_filters:
                   - name: envoy.cors
                   - name: envoy.router
