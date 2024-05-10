@@ -10,7 +10,7 @@
         <entry key="Common:966c55a6-ca15-4bf7-b75d-098ce39d6a8d:dbContext" value="RecALLDemo.Contrib.MaskedTextItem.Api.Services.MaskedTextItemContext" />
         <entry key="Common:buildConfiguration" value="Debug" />
         <entry key="Common:noBuild" value="false" />
-        <entry key="Common:outputFolder" value="Migrations\IdentityServer\PersistedGrantDb" />
+        <entry key="Common:outputFolder" value="..\List.Api\Infrastructure\Migrations\List" />
       </map>
     </option>
   </component>

@@ -75,6 +75,7 @@ public static class ProgramExtensions {
                             Scopes = new Dictionary<string, string> {
                                 ["List"] = "List",
                                 ["TextList"] = "TextList",
+                                ["MaskedTextList"] = "MaskedTextList",
                             }
                         }
                     }
@@ -96,6 +97,10 @@ public static class ProgramExtensions {
                 new Uri(builder.Configuration["TextListHealthCheck"]),
                 "TextListHealthCheck", tags: new[] {
                     "TextList"
+                }).AddUrlGroup(
+                new Uri(builder.Configuration["MaskedTextListHealthCheck"]),
+                "MaskedTextListHealthCheck", tags: new[] {
+                    "MaskedTextList"
                 }).AddUrlGroup(
                 new Uri(builder.Configuration["IdentityServerHealthCheck"]),
                 "IdentityServerHealthCheck", tags: new[] {

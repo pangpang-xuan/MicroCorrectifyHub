@@ -11,7 +11,7 @@ using RecALLDemo.Core.List.Infrastructure;
 namespace RecALLDemo.Core.List.Infrastructure.Migrations
 {
     [DbContext(typeof(ListContext))]
-    [Migration("20240412034012_Initial")]
+    [Migration("20240510023318_Initial")]
     partial class Initial
     {
         /// <inheritdoc />

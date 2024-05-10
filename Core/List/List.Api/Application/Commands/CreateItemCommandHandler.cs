@@ -10,8 +10,7 @@ using TheSalLab.GeneralReturnValues;
 namespace RecALLDemo.Core.List.Api.Application.Commands;
 
 public class CreateItemCommandHandler : IRequestHandler<CreateItemCommand,
-    ServiceResult>
-{
+    ServiceResult> {
     private ISetQueryService _setQueryService;
     private readonly IIdentityService _identityService;
     private readonly IContribUrlService _contribUrlService;
@@ -19,52 +18,42 @@ public class CreateItemCommandHandler : IRequestHandler<CreateItemCommand,
     private readonly IItemRepository _itemRepository;
     private readonly IListIntegrationEventService _listIntegrationEventService;
 
-    
     public CreateItemCommandHandler(ISetQueryService setQueryService,
         IIdentityService identityService, IItemRepository itemRepository,
         IContribUrlService contribUrlService,
         IHttpClientFactory httpClientFactory,
         IListIntegrationEventService listIntegrationEventService) {
         _setQueryService = setQueryService ??
-                           throw new ArgumentNullException(nameof(setQueryService));
+            throw new ArgumentNullException(nameof(setQueryService));
         _identityService = identityService ??
-                           throw new ArgumentNullException(nameof(identityService));
+            throw new ArgumentNullException(nameof(identityService));
         _itemRepository = itemRepository ??
-                          throw new ArgumentNullException(nameof(itemRepository));
+            throw new ArgumentNullException(nameof(itemRepository));
         _contribUrlService = contribUrlService;
         _httpClient = httpClientFactory.CreateDefaultClient();
         _listIntegrationEventService = listIntegrationEventService ??
-                                       throw new ArgumentNullException(
-                                           nameof(listIntegrationEventService));
+            throw new ArgumentNullException(
+                nameof(listIntegrationEventService));
     }
 
-
-
-
     public async Task<ServiceResult> Handle(CreateItemCommand command,
-        CancellationToken cancellationToken)
-    {
+        CancellationToken cancellationToken) {
         var set = await _setQueryService.GetAsync(command.SetId,
             _identityService.GetUserIdentityGuid());
-
         var contribUrl =
             $"{_contribUrlService.GetContribUrl(set.TypeId)}/Item/create";
 
         var jsonContent = JsonContent.Create(command.CreateContribJson,
-            options: new JsonSerializerOptions
-            {
+            options: new JsonSerializerOptions {
                 PropertyNameCaseInsensitive = false
             });
 
         HttpResponseMessage response;
-        try
-        {
+        try {
             response = await _httpClient.PostAsync(contribUrl, jsonContent,
                 cancellationToken);
             response.EnsureSuccessStatusCode();
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             return ServiceResult.CreateExceptionResult(e,
                 $"访问Contrib Url时发生错误。TypeId: {set.TypeId}, ContribUrl: {contribUrl}");
         }
@@ -74,16 +63,14 @@ public class CreateItemCommandHandler : IRequestHandler<CreateItemCommand,
 
         var contribResult = JsonSerializer
             .Deserialize<ServiceResultViewModel<string>>(responseJson,
-                new JsonSerializerOptions
-                {
+                new JsonSerializerOptions {
                     PropertyNameCaseInsensitive = true
                 }).ToServiceResult();
 
-        if (contribResult.Status != ServiceResultStatus.Succeeded)
-        {
+        if (contribResult.Status != ServiceResultStatus.Succeeded) {
             return contribResult;
         }
-        
+
         var item = _itemRepository.Add(new Item(set.TypeId, command.SetId,
             contribResult.Result, _identityService.GetUserIdentityGuid()));
         
@@ -94,7 +81,7 @@ public class CreateItemCommandHandler : IRequestHandler<CreateItemCommand,
         if (!saved) {
             return ServiceResult.CreateFailedResult();
         }
-        
+
         var itemIdAssignedIntegrationEvent =
             new ItemIdAssignedIntegrationEvent(set.TypeId, contribResult.Result,
                 item.Id);
@@ -106,6 +93,5 @@ public class CreateItemCommandHandler : IRequestHandler<CreateItemCommand,
             cancellationToken)
             ? ServiceResult.CreateSucceededResult()
             : ServiceResult.CreateFailedResult();
-        
     }
 }

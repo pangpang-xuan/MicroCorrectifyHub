@@ -52,7 +52,7 @@ public class Config {
                 PostLogoutRedirectUris = {
                     $"{clientUrlDict["ListApi"]}/swagger/"
                 },
-                AllowedScopes = { "List", "TextList","MaskedTextList" }  //add new maskedtextlist
+                AllowedScopes = { "List", "TextList", "MaskedTextList" }  //add new maskedtextlist
             },
             new() {
                 ClientId = "TextListApiSwaggerUI",

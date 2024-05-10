@@ -11,7 +11,12 @@ public class ContribUrlService : IContribUrlService {
 
         if (listTypeId == ListType.Text.Id) {
             route = "text";  //根据不同的类型转发到不同的网关
-        } else {
+        } 
+        else if (listTypeId == ListType.MaskedText.Id)
+        {
+            route = "maskedtext";
+
+        }else {
             throw new ArgumentOutOfRangeException(nameof(listTypeId),
                 $"有效取值为{string.Join(",", Enumeration.GetAll<ListType>().Select(p => p.Id.ToString()))}");
         }
